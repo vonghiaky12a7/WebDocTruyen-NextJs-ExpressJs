@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000; // Mặc định PORT = 5000 nếu chưa 
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`✅ Server is running on port ${PORT}`);
+      console.log(`✅ Server is running at http://localhost:${PORT}`);
     });
   })
   .catch((err) => {
