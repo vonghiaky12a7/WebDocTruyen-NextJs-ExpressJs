@@ -1,4 +1,5 @@
 const express = require("express");
+const morgan = require("morgan");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
@@ -8,11 +9,15 @@ const roleRoutes = require("./routes/roleRoutes");
 const app = express();
 
 // Middleware
+
+// Sử dụng morgan để log các yêu cầu HTTP
+app.use(morgan("short"));
+
 app.use(
   cors({
-    origin: ["http://localhost:8092", "http://localhost:8092/users"], // Replace with your frontend URL
-    methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed methods
-    credentials: true, // Allow credentials if needed
+    origin: "*", // Allow all origins // Thay thế bằng URL frontend của bạn
+    methods: ["GET", "POST", "PUT", "DELETE"], // Chỉ định các phương thức được phép
+    credentials: true, // Cho phép credentials nếu cần
   })
 );
 app.use(express.json());
