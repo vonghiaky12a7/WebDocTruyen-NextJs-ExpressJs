@@ -2,7 +2,7 @@ const Story = require("../model/Story");
 
 exports.getAllStories = async (req, res) => {
   try {
-    const stories = await Story.find({}, { _id: 0 });
+    const stories = await Story.find({}, { _id: 0 }).sort({ releaseDate: -1 });
     res.json(stories);
   } catch (err) {
     res.status(500).json({ message: err.message });

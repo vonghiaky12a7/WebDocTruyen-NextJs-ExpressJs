@@ -17,6 +17,7 @@ const Avatar = () => {
           alt="User dropdown"
           width={40}
           height={40}
+          className="object-cover w-full h-full"
         />
       </div>
 

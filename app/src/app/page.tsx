@@ -1,5 +1,5 @@
 "use client"
-import TruyenList from "@/app/components/TruyenList";
+import TruyenList from "@/app/components/StoryList";
 import Banner from "@/app/components/Banner";
 import Slider from "@/app/components/Slider";
 export default function Home() {

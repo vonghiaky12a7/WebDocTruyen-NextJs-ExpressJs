@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/app/context/ThemeContext";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import "./global.css";
+import Providers from "./providers";
+import { Divider } from "@heroui/react";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,13 +15,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>
-        <ThemeProvider>
+    <html lang="en" className="h-full">
+      <body className="flex flex-col min-h-screen">
+        <Providers>
           <Navbar />
-          <main>{children}</main>
+          <Divider className="my-4" />
+          <main className="flex-grow container mx-auto px-6">{children}</main>
+          <Divider className="my-4" />
           <Footer />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

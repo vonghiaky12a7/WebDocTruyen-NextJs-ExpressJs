@@ -2,24 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import ThemeSwitcher from "./ThemeSwitcher";
 import RightNav from "@/app/components/RightNav";
+import ImageHero from "./Image";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Giả lập trạng thái đăng nhập
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Giả lập trạng thái đăng nhập
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+    <nav className="w-full"> {/* Make navbar full width */}
+      <div className="flex flex-wrap items-center justify-between mx-auto py-4 px-20">
         {/* Logo */}
         <Link href="/dashboard" className="flex items-center space-x-2">
-          <Image src="/logo.svg" alt="Logo" width={100} height={80} />
+          <ImageHero />
         </Link>
 
-
         {/* Avatar hoặc Đăng ký */}
-        <div className="flex items-center space-x-3 md:order-2">
+        <div className="flex items-center space-x-5 md:order-2">
           {/* Theme Switcher */}
           <ThemeSwitcher />
 
@@ -29,7 +28,7 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-          <ul className="flex flex-col font-medium p-2 md:p-0 mt-3 border border-gray-100 rounded-lg bg-gray-50 md:space-x-5 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex flex-col font-medium p-2 md:p-0 mt-3 border border-gray-100 rounded-lg md:space-x-5 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-gray-700">
             <li>
               <Link
                 href="/"

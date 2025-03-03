@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import SignupForm from "@/app/components/SignupForm";
+import Login from "@/app/components/SigninForm";
 
-export default function SignupPage() {
+export default function Page() {
   return (
     <section className="container mx-auto px-6">
-      <SignupForm />
+      <Login />
     </section>
   );
 }

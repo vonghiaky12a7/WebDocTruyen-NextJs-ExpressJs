@@ -1,15 +1,16 @@
-import { Button, Link } from "@heroui/react";
+import { Link, Button } from "@heroui/react";
 
 export default function App() {
   return (
     <Button
+      showAnchorIcon
       as={Link}
       color="primary"
-      href="https://github.com/heroui-inc/heroui"
+      className="bg-primary-500 hover:bg-primary-600 text-white"
+      href="/auth/signup"
       variant="solid"
-      className="bg-blue-500 text-white rounded-full"
     >
-      Button Link
+      Sign up
     </Button>
   );
 }

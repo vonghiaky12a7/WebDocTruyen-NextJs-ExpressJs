@@ -4,7 +4,7 @@ import React from "react";
 import { Button, Input, Checkbox, Link, Form, Divider } from "@heroui/react";
 import { Icon } from "@iconify/react";
 
-export default function Login() {
+export default function SignupForm() {
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -18,7 +18,7 @@ export default function Login() {
     <div className="flex h-full w-full items-center justify-center">
       <div className="flex w-full max-w-sm flex-col gap-4 rounded-large bg-content1 px-8 pb-10 pt-6 shadow-small">
         <div className="flex flex-col gap-1">
-          <h1 className="text-large font-medium">Sign in to your account</h1>
+          <h1 className="text-large font-medium">Create your account</h1>
           <p className="text-small text-default-500">to continue to Acme</p>
         </div>
 
@@ -58,16 +58,42 @@ export default function Login() {
             type={isVisible ? "text" : "password"}
             variant="bordered"
           />
-          <div className="flex w-full items-center justify-between px-1 py-2">
-            <Checkbox name="remember" size="sm">
-              Remember me
+          <Input
+            isRequired
+            endContent={
+              <button type="button" onClick={toggleVisibility}>
+                {isVisible ? (
+                  <Icon
+                    className="pointer-events-none text-2xl text-default-400"
+                    icon="solar:eye-closed-linear"
+                  />
+                ) : (
+                  <Icon
+                    className="pointer-events-none text-2xl text-default-400"
+                    icon="solar:eye-bold"
+                  />
+                )}
+              </button>
+            }
+            label="Confirm Password"
+            name="confirm-password"
+            placeholder="Confirm your password"
+            type={isVisible ? "text" : "password"}
+            variant="bordered"
+          />
+          <div className="flex items-start">
+            <Checkbox name="terms" size="sm">
+              I accept the{" "}
+              <Link href="#" size="sm">
+                Terms and Conditions
+              </Link>
             </Checkbox>
-            <Link className="text-default-500" href="#" size="sm">
-              Forgot password?
-            </Link>
           </div>
-          <Button className="w-full" color="primary" type="submit">
-            Sign In
+          <Button
+            className="w-full bg-primary-500 hover:bg-primary-600 text-white"
+            type="submit"
+          >
+            Sign Up
           </Button>
         </Form>
         <div className="flex items-center gap-4 py-2">
@@ -92,13 +118,12 @@ export default function Login() {
           </Button>
         </div>
         <p className="text-center text-small">
-          Need to create an account?&nbsp;
+          Already have an account?&nbsp;
           <Link href="#" size="sm">
-            Sign Up
+            Sign In
           </Link>
         </p>
       </div>
     </div>
   );
 }
-

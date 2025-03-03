@@ -8,7 +8,7 @@ type RightNavProps = {
 };
 
 const RightNav = ({ isLoggedIn }: RightNavProps) => {
-  return <div>{isLoggedIn ? <Avatar /> : <Button />}</div>;
+  return isLoggedIn ? <Avatar /> : <Button />;
 };
 
 export default RightNav;
